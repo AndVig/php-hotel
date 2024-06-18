@@ -42,3 +42,44 @@
 
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hotel</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        </head>
+
+    <body>
+        <div class="container">
+            <div class='d-flex flex-wrap justify-content-center'>
+                <h3 class="mt-4">Hotel Disponibili</h3>
+                <table class='table text-capitalize'>
+                    <thead>
+                        <tr>
+                            <th class='col'>name</th>
+                            <th class='col'>description</th>
+                            <th class='col'>parking</th>
+                            <th class='col'>vote</th>
+                            <th class='col'>distance of center</th>
+                        </tr>
+                    </thead>
+                    <?php foreach($hotels as $hotel) { 
+                        $park=$hotel['parking']? 'si':'no';
+                    ?>
+                    <tr>
+                        <td><?php echo $hotel['name']; ?></td>
+                        <td><?php echo $hotel['description']; ?></td>
+                        <td><?php echo $park; ?></td>
+                        <td><?php echo $hotel['vote']; ?></td>
+                        <td><?php echo $hotel['distance_to_center']; ?></td>
+                    </tr>
+                    <?php
+                    }
+                    ?>
+                </table>
+            </div>
+        </div>        
+    </body>
+</html>
